@@ -1,3 +1,185 @@
+# ErrorNote — AI Error Prevention System
+
+> **Works with Claude Code · OpenAI Codex CLI · Any AI Agent**
+
+---
+
+## Why ErrorNote?
+
+The biggest waste of tokens and time when coding with AI is **repeating the same mistakes**.
+
+```
+First mistake → AI fixes it → Same mistake again → Fix again → ...
+```
+
+As conversations grow longer, AI tends to forget earlier problems.  
+In a new conversation, that context is gone entirely.  
+ErrorNote solves this structural problem.
+
+**By logging errors to a file**, the AI reads it before starting any task,  
+understands what went wrong before, and avoids those mistakes from the start.
+
+---
+
+## Token Savings
+
+| Situation | Without ErrorNote | With ErrorNote |
+|-----------|------------------|----------------|
+| Same error recurs | Re-diagnose & fix every time | Reference log → avoid immediately |
+| Long debug loops | Massive token consumption | Prevented before they start |
+| New conversation | Zero context | Error history shared instantly |
+| Final review | Uncertain if mistakes were made | Checklist confirmation |
+
+Preventing just 2–3 repeated mistakes can save thousands of tokens.
+
+---
+
+## Why It Makes You Faster
+
+The biggest change I noticed from using ErrorNote with AI Agents is **speed**.
+
+When errors stop repeating, the following disappear:
+
+- Time spent re-explaining the same problem
+- Time the AI spends re-diagnosing the root cause
+- Time wasted retrying solutions that already failed
+- Time lost rolling back and starting over
+
+```
+[Without ErrorNote]
+Problem → Explain → Diagnose → Try → Fail → Explain again → ...  (slow)
+
+[With ErrorNote]
+Problem → AI reads log → Goes straight to the right solution  (fast)
+```
+
+As error records accumulate, the AI picks the correct approach from the start  
+and reaches the goal in a straight line — no unnecessary trial and error.
+
+> Saving tokens and going faster are the same principle.  
+> **Fewer repeated errors → shorter conversations → faster completion.**
+
+---
+
+## File Structure
+
+```
+project root/
+├── CLAUDE.md           ← Auto-read by Claude Code
+├── AGENTS.md           ← Auto-read by OpenAI Codex CLI
+├── ErrorNote.md        ← The actual error log (AI reads and writes this)
+└── ErrorNote_prompt.md ← Copy-paste system prompt for other AI tools
+```
+
+---
+
+## How It Works
+
+```
+Task starts
+    │
+    ▼
+Read ErrorNote.md
+    │
+    ├─ Related error pattern found → proactively avoid it
+    │
+    ▼
+Error occurs during task
+    │
+    ▼
+Immediately append to ErrorNote.md
+    │
+    ▼
+Task complete
+    │
+    ▼
+Re-read ErrorNote.md → final check that no recorded mistakes were repeated
+```
+
+---
+
+## How to Use
+
+### 1. Claude Code
+
+`CLAUDE.md` is already included. Just copy it to your project.
+
+```bash
+# Clone this repo, or copy just two files
+CLAUDE.md       → add to your project root (or merge into existing CLAUDE.md)
+ErrorNote.md    → add to your project root
+```
+
+Claude Code reads `CLAUDE.md` automatically at the start of every conversation — no extra setup needed.
+
+---
+
+### 2. OpenAI Codex CLI
+
+`AGENTS.md` is already included. Copy it to your project root the same way.
+
+```bash
+AGENTS.md       → add to your project root
+ErrorNote.md    → add to your project root
+```
+
+---
+
+### 3. Other AI Agents / Chatbots
+
+Copy the system prompt from `ErrorNote_prompt.md` and paste it into your AI tool.
+
+| Platform | Where to paste |
+|----------|---------------|
+| ChatGPT Custom GPT | System Instructions |
+| Cursor | `.cursorrules` or Rules for AI |
+| Windsurf | Global Rules |
+| Custom Agent | Top of the system prompt |
+
+---
+
+## Error Log Format
+
+```markdown
+### [2026-06-28] File path error
+- **Context**: Creating a Unity script
+- **Problem**: File was created outside Assets/ due to absolute path usage
+- **Cause**: Passed the path directly to the MCP tool without validation
+- **Fix**: Switched to relative path based on Assets/
+- **Prevention**: Always verify the path is inside Assets/ before creating files
+- **Tags**: #unity #filepath
+```
+
+---
+
+## Principles
+
+- Log every error, no matter how minor
+- Copy error messages exactly as they appear
+- Never delete resolved entries — mark them `[RESOLVED]` instead
+- If a similar error recurs, add a recurrence note to the existing entry rather than creating a duplicate
+- Never log sensitive information (API keys, passwords, etc.)
+
+---
+
+## Quick Start
+
+```bash
+git clone https://github.com/overy1234/kosart-ErrNote.git
+```
+
+Copy only the files you need into your project:
+
+| AI Tool | Files to copy |
+|---------|--------------|
+| Claude Code | `CLAUDE.md` + `ErrorNote.md` |
+| OpenAI Codex CLI | `AGENTS.md` + `ErrorNote.md` |
+| Other Agent | paste prompt from `ErrorNote_prompt.md` + `ErrorNote.md` |
+
+---
+
+---
+
 # ErrorNote — AI 에러 누적 방지 시스템
 
 > **Claude Code · OpenAI Codex CLI · 기타 AI Agent 공통 적용 가능**
