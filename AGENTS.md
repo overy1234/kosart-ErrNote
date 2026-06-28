@@ -28,7 +28,10 @@ You must manage an ErrorNote.md file throughout all tasks.
 - **Context**: What task was in progress
 - **Problem**: What exactly went wrong
 - **Cause**: Why it happened (write "unknown" if unclear)
+- **Failed attempts**: Approaches tried that did NOT work
 - **Fix**: How it was resolved
+- **Verification**: How the fix was confirmed (command, screen, result)
+- **Reuse condition**: When to refer back to this entry
 - **Prevention**: How to avoid this next time
 - **Tags**: #category
 ```

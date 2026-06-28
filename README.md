@@ -178,6 +178,42 @@ Copy only the files you need into your project:
 
 ---
 
+## What to Log / What Not to Log
+
+### Log these:
+- Errors likely to recur
+- Problems that took a long time to diagnose
+- Confusing console or UI behavior
+- Build, deploy, or verification issues
+
+### Don't log these:
+- Simple typos
+- Temporary network errors
+- One-time external service outages
+- Session progress notes (keep those separate)
+
+---
+
+## Security Rules
+
+**Never write into ErrorNote.md:**
+- API keys, OAuth tokens, session IDs
+- `.env` values or production credentials
+- URLs containing tokens
+
+**Bad:** `Problem: API_KEY=sk-xxxx caused auth failure`
+**Good:** `Problem: OpenAI API key env variable missing, auth failed`
+
+---
+
+## Examples
+
+See the [examples/](examples/) folder for real-world entries:
+- [google-play.md](examples/google-play.md) — Play Console submission issues
+- [build-deploy.md](examples/build-deploy.md) — Build & signing issues
+
+---
+
 ---
 
 # ErrorNote — AI 에러 누적 방지 시스템
@@ -356,6 +392,42 @@ git clone https://github.com/overy1234/kosart-ErrNote.git
 | Claude Code | `CLAUDE.md` + `ErrorNote.md` |
 | OpenAI Codex CLI | `AGENTS.md` + `ErrorNote.md` |
 | 기타 Agent | `ErrorNote_prompt.md` 내 프롬프트 복사 + `ErrorNote.md` |
+
+---
+
+## 기록 기준
+
+### 기록해야 하는 것
+- 반복될 가능성이 큰 문제
+- 원인 찾는 데 오래 걸린 문제
+- 콘솔/UI가 헷갈리는 문제
+- 빌드/배포/검증 관련 문제
+
+### 기록하지 않아도 되는 것
+- 단순 오타
+- 일시적 네트워크 오류
+- 재발 가능성 낮은 일회성 문제
+- 임시 진행 상황 메모 (별도 관리)
+
+---
+
+## 보안 규칙
+
+**절대 ErrorNote.md에 기록하지 않는 것:**
+- API 키, OAuth 토큰, 세션 ID
+- `.env` 값, 프로덕션 인증 정보
+- 토큰이 포함된 URL
+
+**Bad:** `문제: API_KEY=sk-xxxx 로 인증 실패`
+**Good:** `문제: OpenAI API key 환경변수 누락으로 인증 실패`
+
+---
+
+## 예시
+
+[examples/](examples/) 폴더에 실제 기록 예시가 있습니다:
+- [google-play.md](examples/google-play.md) — Play Console 제출 문제
+- [build-deploy.md](examples/build-deploy.md) — 빌드/서명 문제
 
 ---
 
